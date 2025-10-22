@@ -1,0 +1,7 @@
+{
+  "name": "Gujarati Marketplace Germany",
+  "description": "A digital marketplace connecting the Gujarati community in Germany. Buy and sell goods, find housing, and connect with others.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

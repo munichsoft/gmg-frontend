@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Firebase Token Test</title>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js"></script>
+</head>
+<body>
+    <h1>Firebase Token Test</h1>
+    <div id="status">Loading...</div>
+    <button onclick="testLogin()">Test Login</button>
+    <button onclick="getToken()">Get Token</button>
+    <div id="result"></div>
+
+    <script>
+        // Your Firebase config
+        const firebaseConfig = {
+            apiKey: "AIzaSyCUB1gY42TDVEK0RnZQlqmZuwXZ5ja-ApQ",
+            authDomain: "gmgb-bc25b.firebaseapp.com",
+            projectId: "gmgb-bc25b",
+            storageBucket: "gmgb-bc25b.firebasestorage.app",
+            messagingSenderId: "146074250821",
+            appId: "1:146074250821:web:376aac3dc17294ad1f3d2c",
+            measurementId: "G-S9PW1WZM7P"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const auth = firebase.getAuth(app);
+
+        // Test login
+        async function testLogin() {
+            try {
+                const result = await firebase.signInWithEmailAndPassword(auth, 'test@example.com', 'password123');
+                document.getElementById('status').innerHTML = 'Login successful!';
+                document.getElementById('result').innerHTML = 'User: ' + result.user.email;
+            } catch (error) {
+                document.getElementById('status').innerHTML = 'Login failed: ' + error.message;
+                document.getElementById('result').innerHTML = 'Error code: ' + error.code;
+            }
+        }
+
+        // Get token
+        async function getToken() {
+            try {
+                const user = auth.currentUser;
+                if (user) {
+                    const token = await user.getIdToken();
+                    document.getElementById('result').innerHTML = 'Token: ' + token.substring(0, 50) + '...';
+                } else {
+                    document.getElementById('result').innerHTML = 'No user logged in';
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = 'Error getting token: ' + error.message;
+            }
+        }
+
+        // Check auth state
+        firebase.onAuthStateChanged(auth, (user) => {
+            if (user) {
+                document.getElementById('status').innerHTML = 'User logged in: ' + user.email;
+            } else {
+                document.getElementById('status').innerHTML = 'No user logged in';
+            }
+        });
+    </script>
+</body>
+</html>

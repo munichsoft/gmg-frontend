@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gujarati Marketplace Germany</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-saffron': '#F97316',
+              'brand-green': '#16A34A',
+              'brand-gold': '#FFC72C',
+              'brand-red': '#DD2C00',
+              'brand-dark': '#212121',
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1?dev",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime?dev",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?dev",
+    "react-router-dom": "https://esm.sh/react-router-dom@6.24.1?dev&external=react",
+    "@heroicons/react/24/outline": "https://esm.sh/@heroicons/react@2.1.4/24/outline?dev&external=react",
+    "react-dom/": "https://esm.sh/react-dom@18.3.1/?dev",
+    "react/": "https://esm.sh/react@18.3.1/?dev",
+    "@heroicons/react/": "https://esm.sh/@heroicons/react@2.1.4/?dev&external=react"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-gray-50 text-brand-dark">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
