@@ -17,6 +17,11 @@ export default defineConfig(({ mode }) => {
           }
         }
       },
+      preview: {
+        port: 4173,
+        host: '0.0.0.0',
+        allowedHosts: ['gmg-frontend.onrender.com']
+      },
       plugins: [react()],
       define: {
         'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
